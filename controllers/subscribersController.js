@@ -1,11 +1,10 @@
-const subscriber = require("../models/subscriber");
-const Subscriber = require ("../models/subscriber");
+const Subscriber = require("../models/subscriber");
 
 exports.getAllSubscribers = (req, res ) => {
     Subscriber.find({})
         .exec()
-        .then(subscriber =>{
-            res.render("subscribers", {subscriber:subscriber})
+        .then(subscribers =>{
+            res.render("subscribers", {subscribers: subscribers})
         })
         .catch((error)=> {
             console.log(error);
